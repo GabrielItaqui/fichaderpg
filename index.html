@@ -63,7 +63,7 @@
     </header>
     <div class="container">
         <div class="row">
-            <div class="col-4">
+            <div class="col-1">
                 <table class="table habilidade">
                     <tr>
                         <th>Habilidade</th>
@@ -102,7 +102,7 @@
                     </tr>
                 </table>
             </div>
-            <div class="col-4">
+            <div class="col-2">
               <div class="classeArmadura">
               <h6>Classe de Armadura:</h6>
               <input type="text" id="armorClass" placeholder="0" readonly>
@@ -142,11 +142,15 @@
                   </div>
                 </div>
             </div>
-            <div class="col-4">
+            <div class="col-3">
+              <div class="profBonus">
                 <h2>Bônus de Proeficiência</h2><br>
                 <input type="text" id="profBonus" placeholder="2" readonly>
-                <br><br>
-                <h2>Perícias</h2>
+              </div>
+              <div class="pericias">
+                <div class="textoPericias">
+                  <h2>Perícias</h2>
+                </div>
                 <table class="table">
                     <tr>
                       <td><input type="checkbox" id="acrProf" onchange="setSkills();"></td>
@@ -238,7 +242,8 @@
                       <td>Sobrevivência(SAB):</td>
                       <td><input type="number" id="sobScore"></td>
                     </tr>                                                     
-                <table>
+                  </table>
+                  </div>
             </div>
         </div>
     </div>

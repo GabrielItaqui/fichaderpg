@@ -11,6 +11,10 @@ body {
   text-align: center;
   background-color: bisque;
   border: 2px solid black;
+  text-transform: uppercase;
+}
+.classeNivel {
+  align-items: center;
 }
 .row {
   display: grid;
@@ -30,6 +34,7 @@ body {
   border: 1px solid black;
 }
 th {
+  text-transform: uppercase;
   font-weight: 700;
   border: 1px solid black;
 }
@@ -44,12 +49,14 @@ th, td {
   }
 }
 .valorHabilidade {
-  width: 30px;
-}
-#strScore, #dexScore, #conScore, #intScore, #wisScore, #chaScore, #strMod, #dexMod, #conMod, #intMod, #wisMod, #chaMod {
   width: 50px;
 }
-.col-4 {
+#strScore, #dexScore, #conScore, #intScore, #wisScore, #chaScore, #strMod, #dexMod, #conMod, #intMod, #wisMod, #chaMod, 
+#acrScore, #arcScore, #atlScore, #atuScore, #engScore, #furScore, #hisScore, #intiScore, #intuScore, #inveScore, #lidScore, 
+#medScore, #natScore, #percScore, #persScore, #presScore, #relScore, #sobScore {
+  width: 50px;
+}
+.col-1, .col-2, .col-3 {
   padding: 8px;
 }
 .classeNivel {
@@ -63,7 +70,7 @@ th, td {
     margin: auto;
   }
 }
-#playerLevel {
+#playerLevel{
   width: 50px;
   max-width: 120px;
   margin: auto;
@@ -81,11 +88,38 @@ th, td {
   display: grid;
   justify-content: center;
   border: 1px solid black;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
+  font-weight: 700;
   background-color: bisque;
   padding: 16px;
+  text-transform: uppercase;
 }
 .armaduraEscudo {
   display: flex;
   grid-template-columns: 2;
+}
+.profBonus {
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.2rem;
+  background-color: bisque;
+  border: 1px solid black;
+  margin: 8px;
+  padding: 16px;
+  text-transform: uppercase;
+}
+.textoPericias {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+}
+.pericias {
+  font-size: 1.2rem;
+  background-color: bisque;
+  border: 1px solid black;
+  margin: 8px;
+  padding: 16px;
+  display: grid;
+  justify-content: stretch;
 }
