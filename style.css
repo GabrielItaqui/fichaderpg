@@ -1,0 +1,91 @@
+body {
+  max-width: 1440px;
+  margin: auto;
+  background-color:darkgrey;
+}
+.cabecalho {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(2, auto);
+  padding: 16px;
+  text-align: center;
+  background-color: bisque;
+  border: 2px solid black;
+}
+.row {
+  display: grid;
+}
+@media screen and (min-width: 1440px) {
+  .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+  }
+}
+.habilidade {
+  font-size: 1.2rem;
+  margin: auto;
+  width: 100%;
+  background-color: bisque;
+  border: 1px solid black;
+}
+th {
+  font-weight: 700;
+  border: 1px solid black;
+}
+th, td {
+  border: 1px solid black;
+  text-align: center;
+  padding: 4px 0;
+}
+@media screen and (min-width: 1440px) {
+  th, td {
+    padding: 8px 0;
+  }
+}
+.valorHabilidade {
+  width: 30px;
+}
+#strScore, #dexScore, #conScore, #intScore, #wisScore, #chaScore, #strMod, #dexMod, #conMod, #intMod, #wisMod, #chaMod {
+  width: 50px;
+}
+.col-4 {
+  padding: 8px;
+}
+.classeNivel {
+  display: grid;
+  grid-template-rows: auto auto;
+}
+@media screen and (min-width: 1440px) {
+  .classeNivel {
+    display: grid;
+    grid-template-columns: auto auto;
+    margin: auto;
+  }
+}
+#playerLevel {
+  width: 50px;
+  max-width: 120px;
+  margin: auto;
+  font-size: 0.9rem;
+}
+.armadura, .escudo {
+  border: 1px solid black;
+  font-size: 1.3rem;
+  background-color: bisque;
+  padding: 16px;
+  width: 100%;
+  margin: auto;
+}
+.classeArmadura {
+  display: grid;
+  justify-content: center;
+  border: 1px solid black;
+  font-size: 1.3rem;
+  background-color: bisque;
+  padding: 16px;
+}
+.armaduraEscudo {
+  display: flex;
+  grid-template-columns: 2;
+}
