@@ -1,3 +1,49 @@
+  //barbaro d12
+
+  //bardo d8
+  //bruxo d8
+  //clerigo d8
+  //druida d8
+  //ladino d8
+  //monge d8
+  
+  //feiticeiro d6
+  //mago d6
+  
+  //guardiao d10
+  //guerreiro d10
+  //paladino d10
+  
+// const barbaro = {
+//       pv: 12
+//   }
+// const personagem = {
+//   classe: 
+//   pv: 
+// }
+function classe(pv) {
+  this.pv = pv;
+}
+classe.prototype.esmaga = function() {
+  return this.pv
+}
+var barbaro = new classe(12)
+var druida = new classe(8)
+console.log(barbaro.esmaga())
+console.log(druida.esmaga())
+
+//document.querySelector("#classe").addEventListener("change", pvClasse) 
+
+// function pvClasse(e) {
+//   console.log("sasasa")
+//   let classe = e.target.value
+//   console.log(classe)
+//   if (classe === "barbaro") {
+//     document.getElementById("dadoVida").value = barbaro.pv;
+//   }
+// }
+
+console.log(document.querySelector("#classe"))
 function updateModifiers() {
     //converte valor de habilidade para modificadores.
     var strScore = document.getElementById("strScore").value;
@@ -16,9 +62,8 @@ function updateModifiers() {
     setSkills();
     enableArmor();
     equipArmor(equippedArmor);
-    shieldEquip(shieldEquip);
-  }
-  
+    equipShield(shieldEquip);
+  }  
   function updateProfBonus() {
     //atualiza os valores de proeficiência baseado no nivel do jogador.
   
@@ -35,7 +80,6 @@ function updateModifiers() {
       document.getElementById("profBonus").value = 2;
     }
   }
-  
   function setSkills() {
     var profBonus = parseInt(document.getElementById("profBonus").value);
     var strMod = parseInt(document.getElementById("strMod").value);
@@ -136,13 +180,12 @@ function updateModifiers() {
       document.getElementById("sobScore").value = wisMod;
     }
   }
-  
   function equipArmor(equippedArmor) {
     var armor = equippedArmor.value;
     if (armor == "acolchoada") {
       document.getElementById("armorClass").value =
         parseInt(document.getElementById("dexMod").value) + 11;
-    } else if (armor == "couro") {
+    } else if (armor == "couro") {   
       document.getElementById("armorClass").value =
         parseInt(document.getElementById("dexMod").value) + 11;
     } else if (armor == "couroBatido") {
@@ -197,8 +240,8 @@ function updateModifiers() {
       } else {
         document.getElementById("armorClass").value = parseInt(document.getElementById("dexMod").value) + 10;
       }
-    }
-  function shieldEquip(shieldEquip) {
+  }
+  function equipShield(shieldEquip) {
     var shield = shieldEquip.value;
     if (shield == 'shield') {
       document.getElementById("armorClass").value = parseInt(document.getElementById("armorClass").value) + 2;
@@ -206,7 +249,6 @@ function updateModifiers() {
       equipArmor(equippedArmor);
     }
   }
-
   function enableArmor() {
     var strScore = document.getElementById("strScore").value;
     if (strScore > 14) {
@@ -224,10 +266,69 @@ function updateModifiers() {
     }
   }
 
+  function danoPV () {
+    var quantidade = parseInt(document.getElementById("modPV").value);
+    var pvAtual = parseInt(document.getElementById("pvAtual").value);
+    if ((pvAtual - quantidade) >= 0) {
+      document.getElementById("pvAtual").value = pvAtual - quantidade;
+    } else {
+      document.getElementById("pvAtual").value = 0;
+    }
+  }
+  function curaPV () {
+    var quantidade = parseInt(document.getElementById("modPV").value);
+    var pvAtual = parseInt(document.getElementById("pvAtual").value);
+    var pvMaximo = parseInt(document.getElementById("pvMaximo").value);
+    if ((pvAtual + quantidade) <= pvMaximo) {
+      document.getElementById("pvAtual").value = pvAtual + quantidade;
+    } else {
+      document.getElementById("pvAtual").value = pvMaximo;
+    }
+  }
+  function descansoCurto() {
+    var dadoAtual = parseInt(document.getElementById("dadosVida").value);
+    if (dadoAtual > 0) {
+      var pvAtual = parseInt(document.getElementById("pvAtual").value);
+      var pvMaximo = parseInt(document.getElementById("pvMaximo").value);
+      var dadoMaximo = parseInt(document.getElementById("dadoVida").value);
+      var rolarDado = Math.floor(Math.random() * Math.floor(dadoMaximo) + 1);
+      var mensagemDadoPV = document.getElementById("mensagemDadoPV");
+      if ((pvAtual + rolarDado) <= pvMaximo) {
+        document.getElementById("pvAtual").value = pvAtual + rolarDado;
+      } else {
+        document.getElementById("pvAtual").value = pvMaximo;
+      }
+      document.getElementById("dadosVida").value = dadoAtual -1;
+      mensagemDadoPV.innerHTML = `<p>Você curou ${rolarDado} pontos de vida</p>`;
+    }
+  }
+  function desconsoLongo() {
+    resetaPV();
+    resetaDadosVida();
+  }
+  function resetaPV() {
+    var pvMaximo = parseInt(document.getElementById("pvMaximo").value);
+    document.getElementById("pvAtual").value = pvMaximo;
+  }
+  function resetaDadosVida() {
+    document.getElementById("dadosVida").value = document.getElementById("playerLevel").value;
+  }
   function playerLevelChange() {
     updateProfBonus()
     updateModifiers()
     setSkills()
-    equipArmor()
-    shieldEquip()
+    resetaPV()
+    resetaDadosVida()
   }
+
+/*  function fireball() {
+    magias.fireball.dano();
+  }
+  const magias = {
+    fireball: {
+      dano: () => {
+        return alert("Você causou 18 de dano")
+      }
+    }
+  }
+*/
