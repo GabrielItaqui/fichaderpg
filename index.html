@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./reset.css">
     <link rel="stylesheet" href="./style.css">
-    <script src="./index.js"></script>
     <title>Ficha de RPG by Neocagelion</title>
 </head>
 <body>
@@ -30,18 +29,18 @@
         <div class="nivel">
           <input type="number" id="playerLevel" value="1" min="1" max="20" onchange="playerLevelChange();">
           <select id="classe">
-            <option>Bárbaro</option>
-            <option>Bardo</option>
-            <option>Bruxo</option>
-            <option>Clérigo</option>
-            <option>Druida</option>
-            <option>Feiticeiro</option>
-            <option>Guardião</option>
-            <option>Guerreiro</option>
-            <option>Ladino</option>
-            <option>Mago</option>
-            <option>Monge</option>
-            <option>Paladino</option>
+            <option value="barbaro">Bárbaro</option>
+            <option value="bardo">Bardo</option>
+            <option value="bruxo">Bruxo</option>
+            <option value="clerigo">Clérigo</option>
+            <option value="druida">Druida</option>
+            <option value="feiticeiro">Feiticeiro</option>
+            <option value="guardiao">Guardião</option>
+            <option value="guerreiro">Guerreiro</option>
+            <option value="ladino">Ladino</option>
+            <option value="mago">Mago</option>
+            <option value="monge">Monge</option>
+            <option value="paladino">Paladino</option>
           </select>
         </div>
       </div>
@@ -135,13 +134,41 @@
                   </div>
                   <div class="escudo">
                     <h2>Escudo</h2>
-                    <select id="shieldEquip" onchange="shieldEquip(this);">
+                    <select id="shieldEquip" onchange="equipShield(this);">
                       <option value="none">Nenhum</option>
                       <option value="shield">Escudo | +2</option>
                     </select>
                   </div>
                 </div>
-            </div>
+                <div class="secaoPV">
+                  <div class="pontosVida">
+                    <h2 class="textoPV">Pontos de Vida</h2>
+                    <input type="number" id="pvAtual"/> / 
+                    <input type="number" id="pvMaximo"/>
+                  </div>
+                  <div class="alteracaoPV">
+                    <button class="botaoDano" onclick="danoPV();">Dano </button>
+                    <input type="number" id="modPV" />
+                    <button class="botaoCura" onclick="curaPV()">Cura </button>
+                  </div>
+                </div>
+                <div class="dadosVida">
+                  <div>
+                    <div class="dadosVidaTitulo">
+                      <h2>Dados de Vida</h2>
+                    </div>
+                      <input class="inputDadosVida" id="dadosVida" type="number"/> 
+                      <input type="text" id="dadoVida" placeholder="0" readyonly onchange="pvClasse();">
+                      </select>
+                    </div>
+                    <div>
+                      <button class="descansoCurto" onclick="descansoCurto();">Descanso Curto</button>
+                      <button class="descansoLongo" onclick="desconsoLongo();">Descanso Longo</button>
+                      </button>
+                      <div id="mensagemDadoPV"></div> 
+                    </div>
+                  </div>
+                </div>
             <div class="col-3">
               <div class="profBonus">
                 <h2>Bônus de Proeficiência</h2><br>
